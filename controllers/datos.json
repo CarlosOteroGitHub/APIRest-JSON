@@ -1,0 +1,25 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nombre": "Carlos Otero Ramírez",
+            "nacimiento": "1995-12-01",
+            "correo": "carlos.otero@gmail.com",
+            "password": "carlospass"
+        },
+        {
+            "id": 2,
+            "nombre": "Fernando Lopez Torres",
+            "nacimiento": "1993-04-02",
+            "correo": "fer.lopez@gmail.com",
+            "password": "ferPass"
+        },
+        {
+            "id": 3,
+            "nombre": "Gabriela Torrado Martinez",
+            "nacimiento": "1996-01-07",
+            "correo": "gaby.Torrado@gmail.com",
+            "password": "gabyPass"
+        }
+    ]
+}

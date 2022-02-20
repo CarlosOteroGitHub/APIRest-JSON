@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <h2>Datos de usuarios desde archivo JSON</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Nacimiento</th>
+                <th>Correo</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody id="usuarios_lista">
+        </tbody>
+    </table>
+</body>
+<script>
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", "http://localhost:8080/api/users", true);
+    xmlhttp.send();
+    xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+            var guardar = "";
+            var datos_usuarios = JSON.parse(this.responseText);
+            for(var i =0; i<datos_usuarios.usuarios.length; i++){
+                guardar+=`
+                    <tr>
+                        <td>` + datos_usuarios.usuarios[i].id + `</th>
+                        <td>` + datos_usuarios.usuarios[i].nombre + `</th>
+                        <td>` + datos_usuarios.usuarios[i].nacimiento + `</th>
+                        <td>` + datos_usuarios.usuarios[i].correo + `</th>
+                        <td>` + datos_usuarios.usuarios[i].password + `</th>
+                    </tr>`;
+            }
+
+            document.getElementById('usuarios_lista').innerHTML += guardar;
+        }
+    };
+</script>
+</html>
